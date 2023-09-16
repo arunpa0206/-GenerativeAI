@@ -5,15 +5,20 @@ from langchain.embeddings import OpenAIEmbeddings
 from langchain.chat_models import ChatOpenAI
 from langchain.chains import RetrievalQA
 
-# Replace 'YOUR_API_KEY' with your actual OpenAI API key
+# this will load 'YOUR_OPENAI_API_KEY' from the .env file
+from dotenv import load_dotenv
 import os
-os.environ['OPENAI_API_KEY'] = 'YOUR_API_KEY'
 
-pdf_file_path = 'C:/Users/alakh/Desktop/Generative AI Workshop/generativeai/2.docbot/Demo-pdf-3-idiots.pdf' # mention your path for "Demo-pdf-3-idiots.pdf"
+load_dotenv()
+openai_api_key = os.environ.get('OPENAI_API_KEY')
+
+# mention your path for "Demo-pdf-3-idiots.pdf"
+pdf_file_path = 'C:/Users/alakh/Desktop/Generative AI Workshop/generativeai/2.docbot/Demo-pdf-3-idiots.pdf' 
 
 def get_movie_text_from_pdf(pdf_file_path):
   movie_pdf_loader = PyPDFLoader(pdf_file_path)
-  movie_pdf_documents = movie_pdf_loader.load_and_split() # This line uses the load_and_split method of the PyPDFLoader to load the PDF document and split its content into smaller text chunks or documents.
+  # below line uses the load_and_split method of the PyPDFLoader to load the PDF document and split its content into smaller text chunks or documents.
+  movie_pdf_documents = movie_pdf_loader.load_and_split() 
 
   # using CharacterTextSplitter
   movie_pdf_text_splitter = CharacterTextSplitter(separator="\n", # It uses newline characters to separate the text chunks.
@@ -41,7 +46,8 @@ movie_pdf_vectordb = chunk_and_store_movie_data(movie_pdf_text_data)
 
 movie_pdf_llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0)
 
-retriever = movie_pdf_vectordb.as_retriever() # retrieve documents or information from vector database(movie_pdf_vectordb)
+# retrieve documents or information from vector database(movie_pdf_vectordb)
+retriever = movie_pdf_vectordb.as_retriever() 
 
 movie_pdf_chain = RetrievalQA.from_chain_type(llm = movie_pdf_llm,retriever=retriever)
 

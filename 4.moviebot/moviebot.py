@@ -1,16 +1,20 @@
-# Replace 'YOUR_API_KEY' with your actual OpenAI API key
+# this will load 'YOUR_OPENAI_API_KEY' from the .env file
+from dotenv import load_dotenv
 import os
-os.environ['OPENAI_API_KEY'] = 'YOUR_API_KEY' 
 
-from langchain.llms import OpenAI #Importing the OpenAI LLM(Large Language Model)
+load_dotenv()
+openai_api_key = os.environ.get('OPENAI_API_KEY')
 
-movie_bot_llm = OpenAI(temperature = 0.6)
-# creates an instance of the OpenAI language model. The temperature parameter is being set to 0.6,
+#Importing the OpenAI LLM(Large Language Model)
+from langchain.llms import OpenAI 
+
+# below line creates an instance of the OpenAI language model. The temperature parameter is being set to 0.6,
 # which is a hyperparameter that controls the randomness of the model's output. Higher values (e.g., 1.0)
 # make the output more random, while lower values (e.g., 0.2) make it more deterministic
+movie_bot_llm = OpenAI(temperature = 0.6)
+
 
 movie_name = movie_bot_llm("I want to make an Action movie. Suggest a catchy name for this.")
-# OpenAI language model will use this prompt to generate a response
 print(f"Movie name: {movie_name}")
 
 movie_actors_str = movie_bot_llm(f"Suggest some actors for '{movie_name}'. Return it as a comma separated list.") 
@@ -22,9 +26,8 @@ print(f"\nMovie scene: {movie_scene}")
 
 ## Making a movie poster ##
 
-# Replace 'YOUR_API_KEY' with your actual OpenAI API key
 import openai
-openai.api_key = 'YOUR_API_KEY'
+openai.api_key = os.environ.get('OPENAI_API_KEY')
 
 def movie_poster(movie_scene):
   prompt = f"A digital art that depicts the scene: {movie_scene}"

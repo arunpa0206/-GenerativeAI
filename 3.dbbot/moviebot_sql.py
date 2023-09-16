@@ -41,15 +41,20 @@ def convert_csv_db(csv_path, db_path):
 
 convert_csv_db(file_path, database_path)
 
+# this will load 'YOUR_OPENAI_API_KEY' from the .env file
+from dotenv import load_dotenv
 import os
-os.environ['OPENAI_API_KEY'] = 'YOUR_API_KEY' #read the API-key from local environment
+
+load_dotenv()
+openai_api_key = os.environ.get('OPENAI_API_KEY')
 
 movie_db = SQLDatabase.from_uri('sqlite:///database.db')
 english_sql_llm = OpenAI(temperature=0) # here the temperature is set to zero as we do not need any variability
+
+#create a langchain with one node(english_sql_llm)
 movie_sql_chain = SQLDatabaseChain.from_llm(llm = english_sql_llm,
                                      db = movie_db,
                                      verbose=True)
-                                     #create a langchain with one node(english_sql_llm)
 
 movie_sql_chain.run("Who are the actors in this movie")
 movie_sql_chain.run("When was the movie released?")

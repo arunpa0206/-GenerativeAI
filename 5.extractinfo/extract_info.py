@@ -1,6 +1,9 @@
-# Replace 'YOUR_API_KEY' with your actual OpenAI API key
+# this will load 'YOUR_OPENAI_API_KEY' from the .env file
+from dotenv import load_dotenv
 import os
-os.environ['OPENAI_API_KEY'] = 'YOUR_API_KEY' 
+
+load_dotenv()
+openai_api_key = os.environ.get('OPENAI_API_KEY')
 
 from langchain.document_loaders import WikipediaLoader
 
