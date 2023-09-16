@@ -1,7 +1,10 @@
-langchain==0.0.268
+pydantic==1.10.8
+langchain==0.0.266
 langchain-experimental==0.0.10
-openai==0.27.8
+openai==0.27.9
 PyPDF2==3.0.1
-tiktoken==0.4.0
-chromadb==0.4.6
-PyPDF==3.15.1
+tiktoken==0.3.0
+chromadb==0.4.7
+PyPDF==3.15.4
+pandas==1.5.3
+wikipedia==1.4.0
