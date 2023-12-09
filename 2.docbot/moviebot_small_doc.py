@@ -9,7 +9,7 @@ openai.api_key = os.environ.get('OPENAI_API_KEY')
 from PyPDF2 import PdfReader
 
 # mention the path for the pdf file - "Demo-pdf-3-idiots.pdf"
-pdf_file_path = 'C:/Users/alakh/Desktop/Generative AI Workshop/generativeai/2.docbot/Demo-pdf-3-idiots.pdf' 
+pdf_file_path = 'Demo-pdf-3-idiots.pdf' 
 
 def read_movie_pdf_text(pdf_file_path):
     

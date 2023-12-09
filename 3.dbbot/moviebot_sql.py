@@ -5,7 +5,7 @@ from langchain.utilities import SQLDatabase
 from langchain_experimental.sql import SQLDatabaseChain
 
 # File path of the CSV file
-file_path = 'C:/Users/alakh/Desktop/Generative AI Workshop/generativeai/3.dbbot/3idiots.csv'
+file_path ='3idiots.csv'
 
 #creating database
 

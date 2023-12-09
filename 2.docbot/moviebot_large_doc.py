@@ -13,7 +13,7 @@ load_dotenv()
 openai_api_key = os.environ.get('OPENAI_API_KEY')
 
 # mention your path for "Demo-pdf-3-idiots.pdf"
-pdf_file_path = 'C:/Users/alakh/Desktop/Generative AI Workshop/generativeai/2.docbot/Demo-pdf-3-idiots.pdf' 
+pdf_file_path = 'Demo-pdf-3-idiots.pdf' 
 
 def get_movie_text_from_pdf(pdf_file_path):
   movie_pdf_loader = PyPDFLoader(pdf_file_path)
@@ -45,6 +45,7 @@ def chunk_and_store_movie_data(movie_pdf_text_data):
 movie_pdf_vectordb = chunk_and_store_movie_data(movie_pdf_text_data)
 
 movie_pdf_llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0)
+
 
 # retrieve documents or information from vector database(movie_pdf_vectordb)
 retriever = movie_pdf_vectordb.as_retriever() 

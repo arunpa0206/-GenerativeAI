@@ -1,0 +1,103 @@
+{
+  "best_metric": 0.3203630745410919,
+  "best_model_checkpoint": "distilbert-base-uncased-lora-text-classification/checkpoint-250",
+  "epoch": 6.0,
+  "eval_steps": 500,
+  "global_step": 1500,
+  "is_hyper_param_search": false,
+  "is_local_process_zero": true,
+  "is_world_process_zero": true,
+  "log_history": [
+    {
+      "epoch": 1.0,
+      "eval_accuracy": {
+        "accuracy": 0.881
+      },
+      "eval_loss": 0.3203630745410919,
+      "eval_runtime": 26.0041,
+      "eval_samples_per_second": 38.456,
+      "eval_steps_per_second": 9.614,
+      "step": 250
+    },
+    {
+      "epoch": 2.0,
+      "learning_rate": 0.0008,
+      "loss": 0.4283,
+      "step": 500
+    },
+    {
+      "epoch": 2.0,
+      "eval_accuracy": {
+        "accuracy": 0.865
+      },
+      "eval_loss": 0.4863324463367462,
+      "eval_runtime": 23.7925,
+      "eval_samples_per_second": 42.03,
+      "eval_steps_per_second": 10.508,
+      "step": 500
+    },
+    {
+      "epoch": 3.0,
+      "eval_accuracy": {
+        "accuracy": 0.885
+      },
+      "eval_loss": 0.6247732043266296,
+      "eval_runtime": 23.7905,
+      "eval_samples_per_second": 42.034,
+      "eval_steps_per_second": 10.508,
+      "step": 750
+    },
+    {
+      "epoch": 4.0,
+      "learning_rate": 0.0006,
+      "loss": 0.2112,
+      "step": 1000
+    },
+    {
+      "epoch": 4.0,
+      "eval_accuracy": {
+        "accuracy": 0.859
+      },
+      "eval_loss": 0.8303582668304443,
+      "eval_runtime": 23.7878,
+      "eval_samples_per_second": 42.038,
+      "eval_steps_per_second": 10.51,
+      "step": 1000
+    },
+    {
+      "epoch": 5.0,
+      "eval_accuracy": {
+        "accuracy": 0.892
+      },
+      "eval_loss": 0.8045966029167175,
+      "eval_runtime": 23.7868,
+      "eval_samples_per_second": 42.04,
+      "eval_steps_per_second": 10.51,
+      "step": 1250
+    },
+    {
+      "epoch": 6.0,
+      "learning_rate": 0.0004,
+      "loss": 0.069,
+      "step": 1500
+    },
+    {
+      "epoch": 6.0,
+      "eval_accuracy": {
+        "accuracy": 0.878
+      },
+      "eval_loss": 0.8733870983123779,
+      "eval_runtime": 23.7994,
+      "eval_samples_per_second": 42.018,
+      "eval_steps_per_second": 10.504,
+      "step": 1500
+    }
+  ],
+  "logging_steps": 500,
+  "max_steps": 2500,
+  "num_train_epochs": 10,
+  "save_steps": 500,
+  "total_flos": 806398009344000.0,
+  "trial_name": null,
+  "trial_params": null
+}
